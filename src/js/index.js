@@ -7,23 +7,27 @@ function render(variables = {}) {
   if (variables.includeCover == false) cover = "<div class='cover'></div>";
 
   if (variables.name == null) {
-    variables.name = "Please enter your Name";
+    variables.name = "Please enter your name";
   }
 
-  if (variables.role == null) variables.role = "Enter your role";
+  if (variables.lastname == null) {
+    variables.lastname = "";
+  }
+
+  if (variables.role == null) variables.role = "Your Role will appear here";
 
   if (variables.city == null) {
-    variables.city = "City?";
+    variables.city = "City";
   }
 
   if (variables.country == null) {
-    variables.country = "Country?";
+    variables.country = "Country";
   }
 
   document.querySelector("#widget_content").innerHTML = `<div class="widget">
             ${cover}
           <img src="${variables.avatarURL}" class="photo" />
-          <h1>${variables.name}</h1>
+          <h1>${variables.name} ${variables.lastname}</h1>
           <h2>${variables.role}</h2>
           <h3>${variables.city}, ${variables.country}</h3>
           <ul class="${variables.socialMediaPosition}">
@@ -44,9 +48,11 @@ window.onload = function() {
     // if includeCover is true the algorithm should
     includeCover: true,
     // this is the url of the image that will used as background for the profile cover
-    background: "https://images.unsplash.com/photo-1511974035430-5de47d3b95da",
+    background:
+      "https://cdn.pixabay.com/photo/2014/04/14/20/11/japanese-cherry-trees-324175__340.jpg",
     // this is the url for the profile avatar
-    avatarURL: "https://randomuser.me/api/portraits/women/42.jpg",
+    avatarURL:
+      "https://thetango.net/wp-content/uploads/2018/07/b1f05ae2a8c6543dea35b572107bbb58-1-620x620.jpg",
     // social media bar position (left or right)
     socialMediaPosition: "position-left",
     // social media usernames
